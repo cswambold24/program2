@@ -13,7 +13,10 @@ public class Program2Demo {
 		
 		LinkedList playlist = new LinkedList();
 		playlist.fillLinkedList(N, songs);
-		System.out.println(playlist.getSize());
+		System.out.println("Here is your playlist:");
+		for (int i = 0; i < playlist.getSize(); i++) {
+			System.out.println((i+1) + ". " + playlist.songData(i));
+		}
 		
 
 	}

@@ -63,7 +63,22 @@ public class LinkedList {
 		this.size++;
 	}
 	
+
+	
+	
 	public int getSize() {
 		return this.size;
+	}
+ 
+	public String songData(int i) {
+		String output = "";
+		Node current = head;
+		for (int j = 0; j < i; j++) {
+			current = current.getNext();
+		}
+			output = current.getTitle() + " by " + current.getArtist();
+			
+		
+		return output;
 	}
 }
