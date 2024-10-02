@@ -1,4 +1,11 @@
 import java.util.Random;
+import java.util.Scanner;
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
 
 public class LinkedList {
 	private Node head;
@@ -80,5 +87,34 @@ public class LinkedList {
 			
 		
 		return output;
+	}
+	
+	public void playSong(int i) {
+		Node current = head;
+		for (int j = 0; j < i; j++) {
+			current = current.getNext();
+		}
+		File musicPath = new File(current.getFilePath());
+		
+		System.out.println(current.getFilePath());
+		
+		try {
+					
+			AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+			Clip clip = AudioSystem.getClip();
+			clip.open(audioInput);
+			clip.start();
+					
+			Scanner s = new Scanner(System.in);
+			System.out.println("Press 1 to stop");
+			int response = s.nextInt();
+			if(response == 1) {
+				clip.stop();
+			}
+					
+		}catch (Exception e) {
+			System.out.println("Error playing music...");
+			System.out.println(e);
+		}
 	}
 }

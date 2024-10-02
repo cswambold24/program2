@@ -30,6 +30,9 @@ public class Program2Demo {
 			System.out.println("4: Remove Current Song");
 			System.out.println("5: Quit Playlist");
 			int choice = input.nextInt();
+			if (choice == 1) {
+				playlist.playSong(0);
+			}
 		} while (playlist.getSize() > 0);
 		
 		

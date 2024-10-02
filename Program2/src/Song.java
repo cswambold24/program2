@@ -36,7 +36,7 @@ public class Song {
 				
 				String title = values[0];
 				String artist = values[1];
-				String filePath = values[1];
+				String filePath = values[2];
 				
 				songs[i] = new Song(title, artist, filePath);
 				i++;				
