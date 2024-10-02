@@ -13,10 +13,25 @@ public class Program2Demo {
 		
 		LinkedList playlist = new LinkedList();
 		playlist.fillLinkedList(N, songs);
-		System.out.println("Here is your playlist:");
-		for (int i = 0; i < playlist.getSize(); i++) {
-			System.out.println((i+1) + ". " + playlist.songData(i));
-		}
+		
+		//create menu
+		do {
+			System.out.println("Here is your playlist:");
+			for (int i = 0; i < playlist.getSize(); i++) {
+				System.out.println((i+1) + ". " + playlist.songData(i));
+			}
+			System.out.println("---------------");
+			System.out.println("Current Song: ");
+			System.out.println(playlist.songData(0));
+			System.out.println("---------------");
+			System.out.println("1: Play Current Song");
+			System.out.println("2: Next Song");
+			System.out.println("3: Previous Song");
+			System.out.println("4: Remove Current Song");
+			System.out.println("5: Quit Playlist");
+			int choice = input.nextInt();
+		} while (playlist.getSize() > 0);
+		
 		
 
 	}
