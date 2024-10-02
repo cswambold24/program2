@@ -27,7 +27,7 @@ public class Song {
 		Song[] songs = new Song[20]; 
 		int i = 0;
 		try {
-			Scanner input = new Scanner(new FileReader("airports.txt"));
+			Scanner input = new Scanner(new FileReader("songs.txt"));
 			
 			while(input.hasNext()) {
 				

@@ -63,4 +63,7 @@ public class LinkedList {
 		this.size++;
 	}
 	
+	public int getSize() {
+		return this.size;
+	}
 }
