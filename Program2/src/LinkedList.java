@@ -117,4 +117,15 @@ public class LinkedList {
 			System.out.println(e);
 		}
 	}
+	
+	public void nextSong() {
+		tail = head;
+		head = head.getNext();
+		
+	}
+	
+	public void previousSong() {
+		head = tail;
+		tail.getPrev();
+	}
 }

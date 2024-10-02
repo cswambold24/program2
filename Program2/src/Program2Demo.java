@@ -15,11 +15,13 @@ public class Program2Demo {
 		playlist.fillLinkedList(N, songs);
 		
 		//create menu
+		System.out.println("Here is your playlist:");
+		for (int i = 0; i < playlist.getSize(); i++) {
+			System.out.println((i+1) + ". " + playlist.songData(i));
+		}
+		
 		do {
-			System.out.println("Here is your playlist:");
-			for (int i = 0; i < playlist.getSize(); i++) {
-				System.out.println((i+1) + ". " + playlist.songData(i));
-			}
+			
 			System.out.println("---------------");
 			System.out.println("Current Song: ");
 			System.out.println(playlist.songData(0));
@@ -32,6 +34,10 @@ public class Program2Demo {
 			int choice = input.nextInt();
 			if (choice == 1) {
 				playlist.playSong(0);
+			} else if (choice == 2) {
+				playlist.nextSong();
+			} else if (choice == 3) {
+				playlist.previousSong();
 			}
 		} while (playlist.getSize() > 0);
 		
