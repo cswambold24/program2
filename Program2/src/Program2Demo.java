@@ -21,7 +21,6 @@ public class Program2Demo {
 		}
 		
 		do {
-			
 			System.out.println("---------------");
 			System.out.println("Current Song: ");
 			System.out.println(playlist.songData(0));
@@ -38,6 +37,8 @@ public class Program2Demo {
 				playlist.nextSong();
 			} else if (choice == 3) {
 				playlist.previousSong();
+			} else if (choice == 4) {
+				playlist.removeCurrentSong();
 			}
 		} while (playlist.getSize() > 0);
 		

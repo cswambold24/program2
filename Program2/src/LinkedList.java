@@ -126,6 +126,25 @@ public class LinkedList {
 	
 	public void previousSong() {
 		head = tail;
-		tail.getPrev();
+		tail = tail.getPrev();
+	}
+	
+	public void removeCurrentSong() {
+		if (this.size == 3) {
+			head = head.getNext();
+			head.setPrev(tail);
+			head.setNext(tail);
+			tail.setNext(head);
+			
+			size--;
+		} else if (this.size == 2) {
+			tail = head;
+			
+			size--;
+		} else if (this.size > 3) {
+			head = head.getNext();
+			head.setPrev(tail);
+			tail.setNext(head);
+		}
 	}
 }
