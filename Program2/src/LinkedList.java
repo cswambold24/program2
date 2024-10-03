@@ -12,7 +12,7 @@ public class LinkedList {
 	private Node tail;
 	
 	private int size;
-	
+	Clip currentClip;
 	public LinkedList() {
 		this.head = null;
 		this.tail = null;
@@ -101,16 +101,13 @@ public class LinkedList {
 		try {
 					
 			AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-			Clip clip = AudioSystem.getClip();
-			clip.open(audioInput);
-			clip.start();
+			currentClip = AudioSystem.getClip();
+			currentClip.open(audioInput);
+			currentClip.start();
 					
 			Scanner s = new Scanner(System.in);
 			System.out.println("Press 1 to stop");
-			int response = s.nextInt();
-			if(response == 1) {
-				clip.stop();
-			}
+			
 					
 		}catch (Exception e) {
 			System.out.println("Error playing music...");
@@ -119,17 +116,20 @@ public class LinkedList {
 	}
 	
 	public void nextSong() {
+		System.out.println("Going to next song");
 		tail = head;
 		head = head.getNext();
 		
 	}
 	
 	public void previousSong() {
+		System.out.println("Going to previous song");
 		head = tail;
 		tail = tail.getPrev();
 	}
 	
 	public void removeCurrentSong() {
+		
 		if (this.size == 3) {
 			head = head.getNext();
 			head.setPrev(tail);
@@ -138,13 +138,19 @@ public class LinkedList {
 			
 			size--;
 		} else if (this.size == 2) {
-			tail = head;
+			head = tail;
+			head.setNext(head);
+			head.setPrev(head);
 			
 			size--;
 		} else if (this.size > 3) {
 			head = head.getNext();
 			head.setPrev(tail);
 			tail.setNext(head);
+		} else if (this.size == 1) {
+			System.out.println("Playlist is empty. Ending program...");
+			System.out.println("Thanks for listening!");
+			size--;
 		}
 	}
 }
