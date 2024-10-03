@@ -34,22 +34,19 @@ public class Program2Demo {
 			if (choice == 1) {
 				playlist.playSong(0);
 			} else if (choice == 2) {
-				playlist.currentClip.stop();
+				if (playlist.currentClip != null && playlist.currentClip.isActive()) { playlist.currentClip.stop(); }
 				playlist.nextSong();
 			} else if (choice == 3) {
-				playlist.currentClip.stop();
+				if (playlist.currentClip != null && playlist.currentClip.isActive()) { playlist.currentClip.stop(); }
 				playlist.previousSong();
 			} else if (choice == 4) {
-				playlist.currentClip.stop();
+				if (playlist.currentClip != null && playlist.currentClip.isActive()) { playlist.currentClip.stop(); }
 				playlist.removeCurrentSong();
 			} else if (choice == 5 ) {
-				playlist.currentClip.stop();
+				if (playlist.currentClip != null && playlist.currentClip.isActive()) { playlist.currentClip.stop(); }
 				System.out.println("Thanks for listening!");
 			}
 		} while (playlist.getSize() > 0);
-		
-		
-		
 
 	}
 
