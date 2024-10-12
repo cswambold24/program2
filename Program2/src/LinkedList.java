@@ -13,12 +13,14 @@ public class LinkedList {
 	
 	private int size;
 	Clip currentClip;
+	
+	
 	public LinkedList() {
 		this.head = null;
 		this.tail = null;
 		this.size = 0;
 	}
-	
+	//fill link lists declares an input of an [Song] which stores the data
 	public void fillLinkedList(int N, Song[] songs) {
 		
 		for (int i = 0; i < N; i ++) {
@@ -27,6 +29,7 @@ public class LinkedList {
 			while (songs[j] == null) {
 				j = rand.nextInt(20);
 			}
+			//create a node out of the given index's data
 			Node newNode = new Node(songs[j].getTitle(), songs[j].getArtist(), songs[j].getFilePath());
 			insert(newNode, this.size + 1);
 			songs[j] = null;
@@ -34,7 +37,7 @@ public class LinkedList {
 		}
 		
 	}
-	
+	//decide what to do based on the size of the linked list
 	public void insert(Node newNode, int n) {
 		
 		if(this.size == 0) {
@@ -76,7 +79,7 @@ public class LinkedList {
 	public int getSize() {
 		return this.size;
 	}
- 
+	//Song data takes in an index traverses the list accordingly, returning the data
 	public String songData(int i) {
 		String output = "";
 		Node current = head;
@@ -88,7 +91,7 @@ public class LinkedList {
 		
 		return output;
 	}
-	
+	//play song code copied from example
 	public void playSong(int i) {
 		Node current = head;
 		for (int j = 0; j < i; j++) {
@@ -127,7 +130,7 @@ public class LinkedList {
 		head = tail;
 		tail = tail.getPrev();
 	}
-	
+	//again, this function decides what to do based on the size of the list
 	public void removeCurrentSong() {
 		
 		if (this.size == 3) {

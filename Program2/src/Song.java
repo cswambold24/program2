@@ -2,6 +2,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
+//this class specifies the structure that the data is stored in before it is transfered 
+
 public class Song {
 	private String title;
 	private String artist;

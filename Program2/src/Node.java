@@ -1,4 +1,4 @@
-
+//regular node class
 public class Node {
 	private String title;
 	private String artist;
