@@ -2,6 +2,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
+//this class specifies the structure that the data is stored in before it is transfered 
+
 public class Song {
 	private String title;
 	private String artist;
@@ -27,7 +29,7 @@ public class Song {
 		Song[] songs = new Song[20]; 
 		int i = 0;
 		try {
-			Scanner input = new Scanner(new FileReader("airports.txt"));
+			Scanner input = new Scanner(new FileReader("songs.txt"));
 			
 			while(input.hasNext()) {
 				
@@ -36,7 +38,7 @@ public class Song {
 				
 				String title = values[0];
 				String artist = values[1];
-				String filePath = values[1];
+				String filePath = values[2];
 				
 				songs[i] = new Song(title, artist, filePath);
 				i++;				
